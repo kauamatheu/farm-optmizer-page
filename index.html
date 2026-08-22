@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Farm Optimizer - calcule TP, Money, XP e NPCs por dia.">
+  <title>Farm Optimizer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div>
+        <strong>Farm Optimizer</strong>
+        <span>Calculadora de farm</span>
+      </div>
+    </div>
+    <button id="resetBtn" class="btn btn-ghost">Limpar</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">SEM LOGIN • SEM BANCO • SEM SALVAMENTO</span>
+        <h1>Configure seu farm e veja o resultado.</h1>
+        <p>Todos os cálculos acontecem no seu navegador. Você pode hospedar esta pasta diretamente no GitHub Pages.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <h2>Seu personagem</h2>
+          <p>Informe os multiplicadores que você possui.</p>
+        </div>
+      </div>
+      <div class="grid inputs-grid">
+        <label>Rank %
+          <input id="rank" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+        </label>
+        <label>VIP %
+          <input id="vip" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+        </label>
+        <label>Clã %
+          <input id="clan" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+        </label>
+        <label>Prestígio
+          <input id="prestige" type="number" min="0" step="1" value="0" inputmode="numeric">
+        </label>
+        <label>Horas de farm por dia
+          <input id="hours" type="number" min="0" step="0.5" value="8" inputmode="decimal">
+        </label>
+        <label>Bardock por dia
+          <input id="bardockRuns" type="number" min="0" max="3" step="1" value="3" inputmode="numeric">
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <h2>Boosters</h2>
+          <p>Escolha no máximo um booster para cada recurso. Eles não acumulam.</p>
+        </div>
+      </div>
+      <div class="booster-grid">
+        <div class="booster-card" data-resource="tp">
+          <div><strong>TP</strong><span>Multiplicador do booster</span></div>
+          <div class="booster-buttons">
+            <button class="booster-btn" data-value="1">Sem booster</button>
+            <button class="booster-btn" data-value="2">200%</button>
+            <button class="booster-btn" data-value="3">300%</button>
+            <button class="booster-btn" data-value="4">400%</button>
+          </div>
+        </div>
+        <div class="booster-card" data-resource="money">
+          <div><strong>Money</strong><span>Multiplicador do booster</span></div>
+          <div class="booster-buttons">
+            <button class="booster-btn" data-value="1">Sem booster</button>
+            <button class="booster-btn" data-value="2">200%</button>
+            <button class="booster-btn" data-value="3">300%</button>
+            <button class="booster-btn" data-value="4">400%</button>
+          </div>
+        </div>
+        <div class="booster-card" data-resource="xp">
+          <div><strong>XP</strong><span>Multiplicador do booster</span></div>
+          <div class="booster-buttons">
+            <button class="booster-btn" data-value="1">Sem booster</button>
+            <button class="booster-btn" data-value="2">200%</button>
+            <button class="booster-btn" data-value="3">300%</button>
+            <button class="booster-btn" data-value="4">400%</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results-grid">
+      <article class="result-card tp"><span>TP / dia</span><strong id="totalTp">0</strong><small id="factorTp">x1.00</small></article>
+      <article class="result-card money"><span>Money / dia</span><strong id="totalMoney">0</strong><small id="factorMoney">x1.00</small></article>
+      <article class="result-card xp"><span>XP / dia</span><strong id="totalXp">0</strong><small id="factorXp">x1.00</small></article>
+      <article class="result-card npc"><span>NPCs / dia</span><strong id="totalNpcs">0</strong><small id="totalRuns">0 execuções</small></article>
+    </section>
+
+    <section class="panel compact">
+      <div class="summary-line">
+        <div><span>Drop do personagem</span><strong id="dropPercent">100%</strong></div>
+        <div><span>Prestígio</span><strong id="prestigeFactor">x1</strong></div>
+        <div><span>Horas</span><strong id="hoursSummary">8h</strong></div>
+      </div>
+    </section>
+
+    <section id="categories"></section>
+  </main>
+
+  <footer>Farm Optimizer • cálculo local no navegador</footer>
+  <script src="app.js"></script>
+</body>
+</html>

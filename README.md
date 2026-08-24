@@ -27,3 +27,13 @@ Os cálculos atuais consideram:
 - Booster 200/300/400% multiplicam o resultado final do respectivo recurso.
 - Rank, VIP e Clã são somados ao 100% base.
 - Prestígio 0 = x1, Prestígio 1 = x2 etc.
+
+## Regra de horas de farm
+
+As horas de farm são uma condição global. Se `Horas de farm por dia` estiver em `0`, nenhuma categoria gera farm:
+- Sagas: 0 execuções
+- Desafios: 0 execuções
+- DLC Bardock: 0 execuções
+- TP, Money, XP e NPCs/dia: 0
+
+Marcar uma saga, desafio ou Bardock sozinho não gera recompensa; a seleção apenas define o que será calculado quando houver horas disponíveis.

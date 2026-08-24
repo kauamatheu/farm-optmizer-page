@@ -33,12 +33,26 @@ function readConfig(){
 }
 
 function executions(cat,cfg){
+  // Horas de farm são a condição global para qualquer atividade.
+  // Com 0 horas disponíveis, nada pode ser farmado, independentemente
+  // da categoria, cooldown ou quantidade de vezes configurada.
+  if(cfg.hours <= 0) return 0;
+
   let x=0;
-  if(cat.mode==="hours") x=Math.floor(cfg.hours*60/cat.cooldown);
-  else if(cat.mode==="daily") x=1;
-  else if(cat.mode==="bardock") x=Math.floor(1440/cat.cooldown);
-  if(cat.mode==="bardock") x=Math.min(x,cfg.bardockRuns,cat.limit??Infinity);
-  else if(cat.limit!=null) x=Math.min(x,cat.limit);
+
+  if(cat.mode==="hours"){
+    // Sagas normais: as horas determinam quantas execuções cabem no dia.
+    x=Math.floor(cfg.hours*60/cat.cooldown);
+  } else if(cat.mode==="daily"){
+    // Desafios: no máximo 1 vez por dia, desde que exista tempo de farm.
+    x=1;
+  } else if(cat.mode==="bardock"){
+    // Bardock: até 3 vezes por dia, respeitando a configuração do usuário.
+    x=Math.floor(1440/cat.cooldown);
+    x=Math.min(x,cfg.bardockRuns,cat.limit??Infinity);
+  }
+
+  if(cat.mode!=="bardock" && cat.limit!=null) x=Math.min(x,cat.limit);
   return Math.max(0,x);
 }
 

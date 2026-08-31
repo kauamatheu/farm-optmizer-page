@@ -41,7 +41,7 @@
         <label>Rank %
           <input id="rank" type="number" min="0" step="0.01" value="0" inputmode="decimal">
         </label>
-        <label>VIP %
+        <label>VIP % <span class="field-hint">(geral)</span>
           <input id="vip" type="number" min="0" step="0.01" value="0" inputmode="decimal">
         </label>
         <label>Clã %
@@ -106,8 +106,9 @@
 
     <section class="panel compact">
       <div class="summary-line">
-        <div><span>Drop do personagem</span><strong id="dropPercent">100%</strong></div>
+        <div><span>Drop geral (Rank + Clã)</span><strong id="dropPercent">100%</strong></div>
         <div><span>Prestígio</span><strong id="prestigeFactor">x1</strong></div>
+        <div><span>Drop total (Prestígio × Drop geral × VIP)</span><strong id="totalDrop">x1</strong></div>
         <div><span>Horas</span><strong id="hoursSummary">8h</strong></div>
       </div>
     </section>

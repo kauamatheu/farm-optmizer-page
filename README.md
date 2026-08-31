@@ -37,3 +37,10 @@ As horas de farm são uma condição global. Se `Horas de farm por dia` estiver 
 - TP, Money, XP e NPCs/dia: 0
 
 Marcar uma saga, desafio ou Bardock sozinho não gera recompensa; a seleção apenas define o que será calculado quando houver horas disponíveis.
+
+
+## Atualização: Saga Moro e bônus VIP
+
+- Saga Moro adicionada após Saga Granolah, com 30 minutos de cooldown e 30 NPCs conforme a planilha recebida.
+- Saga Moro pertence ao mesmo bloco de Sagas de 30 minutos.
+- Rank, VIP e Clã são bônus gerais: 100% base + Rank% + VIP% + Clã%. O VIP não é aplicado separadamente por recurso.
